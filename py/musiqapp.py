@@ -12,7 +12,7 @@ import json
 
 # Antes de fazer qualquer chamada de API, você precisa importar e inicializar o modelo.
 
-teste = genai.configure(api_key=os.environ["API_KEY"])
+teste = genai.configure(api_key='AIzaSyB20cER0MaVSo-5aNuhJEFW21guaCrADQk')
 
 
 model = genai.GenerativeModel('gemini-1.5-flash', generation_config={"response_mime_type": "application/json"}, system_instruction="Você é um crítico de arte.")
@@ -38,7 +38,7 @@ print(response.text)
 
 
 
-access_token = 'BQAsWi_zSwcjCl-UVtiAeDbfAUmhroWN5LxOdwDKhdXHwUW8xPNCW9QR4bhDu0Bh5TaeceS7Gkf2pgLRvVWeUdHpKHuNJQUENTDg9kRtRAIu7YFSwOQ'
+access_token = 'BQDrdMhthQx2araA8PQAlM6GNAWkNp9krA9vDBD4tNxofhehh09AlVkk7QILEJ-IFmlV6CU_o5QO6vNgnQIsBnISdSlbzkMemb3PIRlOui5sJ7G8ly8'
 
 # Endpoint da API do Spotify para buscar músicas
 url = 'https://api.spotify.com/v1/search'
@@ -75,3 +75,8 @@ if response.status_code == 200:
     webbrowser.open(link)
 else:
     print('Erro na requisição:', response.status_code, response.text)
+
+
+url_id = 'https://api.spotify.com/v1/me'
+
+requisicao_id_usuario = requests.get(url_id, headers=headers)
